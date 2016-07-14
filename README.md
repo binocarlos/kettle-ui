@@ -1,11 +1,14 @@
 kettle-ui
 =========
 
-[material-ui](https://github.com/callemall/material-ui) widgets for applications
+[material-ui](https://github.com/callemall/material-ui) widgets for applications - combined with [react-grid-system](https://github.com/zoover/react-grid-system) for a no CSS material toolkit:
  
 Widgets:
 
- * form (using [biro](https://github.com/binocarlos/biro))
+ * Form - display form fields using [biro](https://github.com/binocarlos/biro)
+ * Page - a single page with appbar and content
+ * Grid - export [react-grid-system](https://github.com/zoover/react-grid-system) directly
+ * App - a full application with routes / pages (TBC)
 
 ## install
 
@@ -15,7 +18,7 @@ Install the module to your project:
 $ npm install kettle-ui --save
 ```
 
-## form component
+## Form component
 
 A wrapper for a [biro](https://github.com/binocarlos/biro) form:
 
@@ -77,6 +80,68 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(LoginForm)
+```
+
+## Page
+
+A single page with app bar and centered content:
+
+ * title - the title of the app bar
+ * width - bootstrap 1/12 style - make this an even number
+
+
+```
+<Page title="my page" width="6">
+Hello world
+</Page>
+```
+
+## Grid
+
+You can import the `Container`, `Row` and `Col` classes from [react-grid-system](https://github.com/zoover/react-grid-system):
+
+The docs for the grid system [live here](https://zoover.github.io/react-grid-system/)
+
+```
+import React, {Component, PropTypes} from 'react'
+import { Container, Row, Col } from 'kettle-ui/lib/grid'
+
+class Page extends Component {
+ 
+  render() {
+
+    const styles = {
+      container:{
+        marginTop:'20px'
+      }
+    }
+  
+    var width = parseInt(this.props.width)
+    width = isNaN(width) ? 6 : width
+    const otherWidth = (12-width)/2;
+
+    return (
+      <div>
+        <AppBar
+          showMenuIconButton={false}
+          title={this.props.title}
+          zDepth={0}
+        />
+
+        <Container style={styles.container}>
+          <Row>
+            <Col md={otherWidth}></Col>
+            <Col md={width}>
+              {this.props.children}
+            </Col>
+            <Col md={otherWidth}></Col>
+          </Row>
+
+        </Container>
+      </div>
+    );
+  }
+}
 ```
 
 ## license

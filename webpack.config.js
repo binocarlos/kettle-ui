@@ -11,7 +11,7 @@ var nodeEnvPlugin = new webpack.DefinePlugin({
 
 module.exports = {
   devtool: RELEASE ? [] : [
-    'inline-source-map'
+    'source-map'
   ],
   entry: [
     './example/index'
@@ -23,7 +23,10 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      react: path.resolve('./node_modules/react')
+    }
   },
 
   plugins: RELEASE ? [

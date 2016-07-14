@@ -4,7 +4,8 @@ import { Provider, connect } from 'react-redux'
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import KettleForm from '../lib/Form'
+import KettleForm from '../src/Form'
+import KettlePage from '../src/Page'
 
 const SCHEMA = [
   'firstname',
@@ -90,7 +91,9 @@ injectTapEventPlugin()
 ReactDOM.render(  
   <Provider store={store}>
     <MuiThemeProvider>
-      <FormContainer /> 
+      <KettlePage title="My App" width={8}>
+        <FormContainer />
+      </KettlePage>
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('mount')
