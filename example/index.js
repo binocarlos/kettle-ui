@@ -4,8 +4,10 @@ import { Provider, connect } from 'react-redux'
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import AppBar from 'material-ui/AppBar'
 import KettleForm from '../src/Form'
-import KettlePage from '../src/Page'
+import { Container, Row, Col } from '../src/Grid'
+
 
 const SCHEMA = [
   'firstname',
@@ -25,6 +27,12 @@ function formUpdateAction(data, meta){
 const initialState = {
   data:{},
   meta:null
+}
+
+const styles = {
+  container:{
+    marginTop:'20px'
+  }
 }
 
 const reducer = combineReducers({
@@ -91,9 +99,23 @@ injectTapEventPlugin()
 ReactDOM.render(  
   <Provider store={store}>
     <MuiThemeProvider>
-      <KettlePage title="My App" width={8}>
-        <FormContainer />
-      </KettlePage>
+      <div>
+        <AppBar
+          showMenuIconButton={false}
+          title="Test App"
+          zDepth={2}
+        />
+        <Container style={styles.container}>
+          <Row>
+            <Col md={3}></Col>
+            <Col md={6}>
+              <FormContainer />
+            </Col>
+            <Col md={6}></Col>
+          </Row>
+
+        </Container>
+      </div>
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('mount')

@@ -6,9 +6,7 @@ kettle-ui
 Widgets:
 
  * Form - display form fields using [biro](https://github.com/binocarlos/biro)
- * Page - a single page with appbar and content
  * Grid - export [react-grid-system](https://github.com/zoover/react-grid-system) directly
- * App - a full application with routes / pages (TBC)
 
 ## install
 
@@ -80,20 +78,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(LoginForm)
-```
-
-## Page
-
-A single page with app bar and centered content:
-
- * title - the title of the app bar
- * width - bootstrap 1/12 style - make this an even number
-
-
-```
-<Page title="my page" width="6">
-Hello world
-</Page>
 ```
 
 ## Grid
