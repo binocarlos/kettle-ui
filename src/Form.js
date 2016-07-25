@@ -1,11 +1,27 @@
 import React, { PropTypes, Component } from 'react'
 import Biro from 'biro'
 import RaisedButton from 'material-ui/RaisedButton'
+import Chip from 'material-ui/Chip'
+import RefreshIndicator from 'material-ui/RefreshIndicator'
 import library from 'biro-material-ui'
 import layout from 'biro-material-ui/layout'
 
-const buttonstyle = {
-  marginTop: 12,
+const blockStyle = {
+  marginTop: '20px',
+}
+
+const errorChipStyle = {
+  margin:'4px',
+  marginTop:'10px'
+}
+
+const errorLabelStyle = {
+  color:'white'
+}
+
+const refreshStyle = {
+  display: 'inline-block',
+  position: 'relative'
 }
 
 class Form extends Component {
@@ -16,8 +32,34 @@ class Form extends Component {
   
   render() {
 
-    var merged_library = Object.assign({}, library, this.props.library)
-    
+    const merged_library = Object.assign({}, library, this.props.library)
+
+    const errorDiv = this.props.error && !this.props.loading ? (
+      <Chip
+        backgroundColor='red' 
+        labelStyle={errorLabelStyle}
+        style={errorChipStyle}
+      >
+        {this.props.error}
+      </Chip>
+    ) : null
+
+    const submitButton = this.props.loading ? (
+      <RefreshIndicator
+        size={40}
+        left={10}
+        top={0}
+        status="loading"
+        style={refreshStyle}
+      />
+    ) : (
+      <RaisedButton 
+        label={this.props.title || 'Submit'} 
+        primary={true} 
+        onClick={this.submit.bind(this)}
+      />
+    )
+
     return (
       <div>
 
@@ -31,12 +73,13 @@ class Form extends Component {
           update={this.props.update}
         />
 
-        <RaisedButton 
-          label={this.props.title || 'Submit'} 
-          primary={true} 
-          onClick={this.submit.bind(this)}
-          style={buttonstyle} 
-        />
+        <div style={blockStyle}>
+          {submitButton}
+        </div>
+
+        <div style={blockStyle}>
+          {errorDiv}
+        </div>
 
       </div>
     )

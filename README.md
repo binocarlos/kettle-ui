@@ -23,6 +23,8 @@ A wrapper for a [biro](https://github.com/binocarlos/biro) form:
  * title
  * data - the form data
  * meta - the form meta
+ * error - an overall error message (e.g. network failed message)
+ * loading - is the form currently submitting or otherwise busy
  * schema - the fields
  * validate - overall validator
  * library - extra library fields merged into [biro-material-ui](https://github.com/binocarlos/biro-material-ui)
