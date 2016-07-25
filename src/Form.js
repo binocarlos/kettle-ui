@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import Biro from 'biro'
 import RaisedButton from 'material-ui/RaisedButton'
 import Chip from 'material-ui/Chip'
+import {pinkA700} from 'material-ui/styles/colors'
 import RefreshIndicator from 'material-ui/RefreshIndicator'
 import library from 'biro-material-ui'
 import layout from 'biro-material-ui/layout'
@@ -36,7 +37,7 @@ class Form extends Component {
 
     const errorDiv = this.props.error && !this.props.loading ? (
       <Chip
-        backgroundColor='red' 
+        backgroundColor={pinkA700}
         labelStyle={errorLabelStyle}
         style={errorChipStyle}
       >
