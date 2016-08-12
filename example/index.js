@@ -5,7 +5,8 @@ import { applyMiddleware, compose, createStore, combineReducers } from 'redux'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
-import KettleForm from '../src/Form'
+import Form from '../src/Form'
+import AppWrapper from '../src/AppWrapper'
 import { Container, Row, Col } from '../src/Grid'
 
 
@@ -59,7 +60,7 @@ const store = finalCreateStore(reducer)
 class MyForm extends Component {
   render() {
     return (
-      <KettleForm
+      <Form
         title='Apples' 
         data={this.props.data}
         meta={this.props.meta}
@@ -99,12 +100,12 @@ injectTapEventPlugin()
 ReactDOM.render(  
   <Provider store={store}>
     <MuiThemeProvider>
-      <div>
-        <AppBar
+      <AppWrapper
+        appbar={<AppBar
           showMenuIconButton={false}
           title="Test App"
-          zDepth={2}
-        />
+          zDepth={2} />
+        }>
         <Container style={styles.container}>
           <Row>
             <Col md={3}></Col>
@@ -113,9 +114,8 @@ ReactDOM.render(
             </Col>
             <Col md={6}></Col>
           </Row>
-
         </Container>
-      </div>
+      </AppWrapper>
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('mount')

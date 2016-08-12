@@ -7,7 +7,7 @@
     "clean": "mkdir -p example/dist && rm -rf example/dist/*",
     "assets": "cp example/*.{html,css} example/dist",
     "watch": "NODE_ENV=development WEBPACK_ARGS=--watch npm run webpack",
-    "prewebpack": "npm run compile && npm run clean && npm run assets",
+    "prewebpack": "npm run clean && npm run assets",
     "webpack": "webpack $WEBPACK_ARGS",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile",

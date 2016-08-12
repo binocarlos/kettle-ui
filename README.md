@@ -7,6 +7,8 @@ Widgets:
 
  * Form - display form fields using [biro](https://github.com/binocarlos/biro)
  * Grid - export [react-grid-system](https://github.com/zoover/react-grid-system) directly
+ * AppWrapper - an AppBar and an offset full width/height ContentPane
+ * NavWrapper - scrollable sidebar and an offset full width/height ContentPane
 
 ## install
 
@@ -16,7 +18,7 @@ Install the module to your project:
 $ npm install kettle-ui --save
 ```
 
-## Form component
+## Form
 
 A wrapper for a [biro](https://github.com/binocarlos/biro) form:
 
@@ -88,9 +90,9 @@ You can import the `Container`, `Row` and `Col` classes from [react-grid-system]
 
 The docs for the grid system [live here](https://zoover.github.io/react-grid-system/)
 
-```
+```javascript
 import React, {Component, PropTypes} from 'react'
-import { Container, Row, Col } from 'kettle-ui/lib/grid'
+import { Container, Row, Col } from 'kettle-ui/lib/Grid'
 
 class Page extends Component {
  
@@ -125,6 +127,96 @@ class Page extends Component {
 
         </Container>
       </div>
+    );
+  }
+}
+```
+
+## AppWrapper
+
+Use this to display an AppBar together with an offset content pane below.
+
+All properties passed to the AppWrapper are passed onto the [AppBar Component](http://www.material-ui.com/#/components/app-bar).
+
+The child elements are used as the content.
+
+ * appbar - the React element to use as the topbar
+ * height - the height of the topbar (default=64px)
+
+```javascript
+import React, {Component, PropTypes} from 'react'
+import AppBar from 'material-ui/AppBar'
+import AppWrapper from 'kettle-ui/lib/AppWrapper'
+
+class App extends Component {
+ 
+  render() {
+
+    return (
+      <AppWrapper
+        appbar={
+          <AppBar title="MyApp" />
+        }>
+        This is the body content
+      </AppWrapper>
+    );
+  }
+}
+```
+
+NOTE - to use this you need CSS like the following:
+
+```css
+body, html {
+
+  height: 100%;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+}
+```
+
+## NavWrapper
+
+Use this to display an auto-scrollable side-panel for navigation (for example a menu or list).
+
+It will display child elements in the content pane on the right hand side.
+
+```javascript
+import React, {Component, PropTypes} from 'react'
+import {List, ListItem} from 'material-ui/List'
+import NavWrapper from 'kettle-ui/lib/NavWrapper'
+
+class MainContent extends Component {
+ 
+  render() {
+
+    return (
+      <NavWrapper
+        sidebar={
+          <List>
+            <Subheader>Navigation</Subheader>
+            <ListItem primaryText="Sent mail" />
+            <ListItem primaryText="Drafts" />
+            <ListItem
+              primaryText="Inbox"
+              nestedItems={[
+                <ListItem
+                  key={1}
+                  primaryText="Starred" />}
+                />,
+                <ListItem
+                  key={2}
+                  primaryText="Sent Mail"
+                />
+              ]}
+            />
+          </List>
+        }>
+        This is the body content
+      </AppWrapper>
     );
   }
 }
