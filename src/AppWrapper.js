@@ -1,20 +1,25 @@
 import React, { PropTypes, Component } from 'react'
 
+const STYLE_DEFAULTS = {
+  height:64
+}
+
 function getStyles(conf = {}){
+  var height = (conf.height || STYLE_DEFAULTS.height) + 'px'
   return {
     header:{
       position: 'fixed',
       top: '0',
       left: '0',
       width: '100%',
-      height: '64px',
-      zIndex: '1'
+      height: height,
+      zIndex: '1000'
     },
     main:{
       position: 'absolute',
       width: '100%',
       height: '100%',
-      paddingTop: '64px',
+      paddingTop: height,
       boxSizing: 'border-box'
     }
   }
@@ -23,7 +28,7 @@ class AppWrapper extends Component {
 
   render() {
 
-    var styles = getStyles()
+    var styles = getStyles(this.props)
 
     return (
       <div>

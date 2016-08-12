@@ -6,7 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 import Form from '../src/Form'
-import AppWrapper from '../src/AppWrapper'
+import AppNavWrapper from '../src/AppNavWrapper'
 import { Container, Row, Col } from '../src/Grid'
 
 
@@ -28,12 +28,6 @@ function formUpdateAction(data, meta){
 const initialState = {
   data:{},
   meta:null
-}
-
-const styles = {
-  container:{
-    marginTop:'20px'
-  }
 }
 
 const reducer = combineReducers({
@@ -79,6 +73,7 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
+
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     update:function(data, meta){
@@ -100,13 +95,16 @@ injectTapEventPlugin()
 ReactDOM.render(  
   <Provider store={store}>
     <MuiThemeProvider>
-      <AppWrapper
+      <AppNavWrapper
         appbar={<AppBar
           showMenuIconButton={false}
           title="Test App"
           zDepth={2} />
+        }
+        navbar={
+          <div>this is the tree</div>
         }>
-        <Container style={styles.container}>
+        <Container>
           <Row>
             <Col md={3}></Col>
             <Col md={6}>
@@ -115,7 +113,7 @@ ReactDOM.render(
             <Col md={6}></Col>
           </Row>
         </Container>
-      </AppWrapper>
+      </AppNavWrapper>
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('mount')

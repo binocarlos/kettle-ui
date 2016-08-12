@@ -184,6 +184,10 @@ Use this to display an auto-scrollable side-panel for navigation (for example a 
 
 It will display child elements in the content pane on the right hand side.
 
+ * navbar - the React element to use as the navbar
+ * width - the width of the navbar (default=200px)
+ * height - the height of the topbar (default=64px)
+
 ```javascript
 import React, {Component, PropTypes} from 'react'
 import {List, ListItem} from 'material-ui/List'
@@ -195,7 +199,7 @@ class MainContent extends Component {
 
     return (
       <NavWrapper
-        sidebar={
+        navbar={
           <List>
             <Subheader>Navigation</Subheader>
             <ListItem primaryText="Sent mail" />
@@ -217,6 +221,57 @@ class MainContent extends Component {
         }>
         This is the body content
       </AppWrapper>
+    );
+  }
+}
+```
+
+## AppNavWrapper
+
+A combo of the app and nav wrapper so you pass the appbar and navbar both as properties
+
+ * appbar - the React element to use as the topbar
+ * navbar - the React element to use as the navbar
+ * width - the width of the navbar (default=200px)
+ * height - the height of the topbar (default=64px)
+
+```javascript
+import React, {Component, PropTypes} from 'react'
+import AppBar from 'material-ui/AppBar'
+import {List, ListItem} from 'material-ui/List'
+import AppNavWrapper from 'kettle-ui/lib/AppNavWrapper'
+
+class MainContent extends Component {
+ 
+  render() {
+
+    return (
+      <AppNavWrapper
+        appbar={
+          <AppBar title="MyApp" />
+        }
+        navbar={
+          <List>
+            <Subheader>Navigation</Subheader>
+            <ListItem primaryText="Sent mail" />
+            <ListItem primaryText="Drafts" />
+            <ListItem
+              primaryText="Inbox"
+              nestedItems={[
+                <ListItem
+                  key={1}
+                  primaryText="Starred" />}
+                />,
+                <ListItem
+                  key={2}
+                  primaryText="Sent Mail"
+                />
+              ]}
+            />
+          </List>
+        }>
+        This is the body content
+      </AppNavWrapper>
     );
   }
 }
