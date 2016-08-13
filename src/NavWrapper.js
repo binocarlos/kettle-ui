@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react'
+import Paper from 'material-ui/Paper'
 
 const STYLE_DEFAULTS = {
   height:64,
@@ -9,7 +10,7 @@ function getStyles(conf = {}){
   var width = (conf.width || STYLE_DEFAULTS.width) + 'px'
   var height = (conf.height || STYLE_DEFAULTS.height) + 'px'
 
-  return {
+  var baseStyles = {
     wrapper:{
       width: '100%',
       height: '100%'
@@ -40,20 +41,37 @@ function getStyles(conf = {}){
       position: 'relative'
     }
   }
+  var ret = {}
+  Object.keys(baseStyles || {}).forEach(function(key){
+    var style = baseStyles[key]
+    style = Object.assign({}, style, conf[key])
+    ret[key] = style
+  })
+  return ret
 }
 class NavWrapper extends Component {
 
   render() {
 
-    var styles = getStyles(this.props)
+    var styles = getStyles(this.props.styles)
 
     return (
       <div style={styles.wrapper}>
-        <section style={styles.tree}>
-          <div style={styles.inner}>
-            {this.props.navbar}
-          </div>
-        </section>
+        {
+          this.props.paperprops ? (
+            <Paper {...this.props.paperprops} style={styles.tree}>
+              <div style={styles.inner}>
+                {this.props.navbar}
+              </div>
+            </Paper>
+          ) : (
+            <div style={styles.tree}>
+              <div style={styles.inner}>
+                {this.props.navbar}
+              </div>
+            </div>
+          )
+        }
         <section style={styles.content}>
           <div style={styles.inner}>
             {this.props.children}

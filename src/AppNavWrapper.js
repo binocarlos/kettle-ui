@@ -12,6 +12,8 @@ class AppNavWrapper extends Component {
         height={this.props.height}>
         <NavWrapper
           navbar={this.props.navbar} 
+          styles={this.props.styles} 
+          paperprops={this.props.paperprops} 
           width={this.props.width}
           height={this.props.height}>
           {this.props.children}

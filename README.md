@@ -187,6 +187,14 @@ It will display child elements in the content pane on the right hand side.
  * navbar - the React element to use as the navbar
  * width - the width of the navbar (default=200px)
  * height - the height of the topbar (default=64px)
+ * paperprops - use material-ui paper for the left nav
+   * zDepth
+   * rounded
+ * styles - override properties of the div styles
+   * wrapper - the container div
+   * tree - the div containing the left nav
+   * content - the div containing the right content
+   * inner - the content div inside both tree and content
 
 ```javascript
 import React, {Component, PropTypes} from 'react'
@@ -197,8 +205,15 @@ class MainContent extends Component {
  
   render() {
 
+    var overrideStyles = {
+      tree:{
+        borderRight:'1px solid #999'
+      }
+    }
+
     return (
       <NavWrapper
+        styles={overrideStyles}
         navbar={
           <List>
             <Subheader>Navigation</Subheader>
@@ -234,7 +249,9 @@ A combo of the app and nav wrapper so you pass the appbar and navbar both as pro
  * navbar - the React element to use as the navbar
  * width - the width of the navbar (default=200px)
  * height - the height of the topbar (default=64px)
-
+ * styles - override styles of the navbar
+ * paperprops - the paper props for the navbar
+ 
 ```javascript
 import React, {Component, PropTypes} from 'react'
 import AppBar from 'material-ui/AppBar'
