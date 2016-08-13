@@ -24,6 +24,7 @@ function getStyles(conf = {}){
       width: width,
       paddingTop: height,
       maxHeight: '100%',
+      zIndex:'100'
     },
     content:{
       minHeight: '100%',
