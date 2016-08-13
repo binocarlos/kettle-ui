@@ -7,6 +7,7 @@ const STYLE_DEFAULTS = {
 }
 
 function getStyles(conf = {}){
+  var styles = conf.styles || {}
   var width = (conf.width || STYLE_DEFAULTS.width) + 'px'
   var height = (conf.height || STYLE_DEFAULTS.height) + 'px'
 
@@ -44,7 +45,7 @@ function getStyles(conf = {}){
   var ret = {}
   Object.keys(baseStyles || {}).forEach(function(key){
     var style = baseStyles[key]
-    style = Object.assign({}, style, conf[key])
+    style = Object.assign({}, style, styles[key])
     ret[key] = style
   })
   return ret
@@ -53,7 +54,7 @@ class NavWrapper extends Component {
 
   render() {
 
-    var styles = getStyles(this.props.styles)
+    var styles = getStyles(this.props)
 
     return (
       <div style={styles.wrapper}>
