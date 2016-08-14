@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import Paper from 'material-ui/Paper'
+import { mergeStyles } from './tools'
 
 const STYLE_DEFAULTS = {
   height:64,
@@ -26,7 +27,7 @@ function getStyles(conf = {}){
       width: width,
       paddingTop: height,
       maxHeight: '100%',
-      zIndex:'100'
+      zIndex:'999'
     },
     content:{
       minHeight: '100%',
@@ -42,13 +43,8 @@ function getStyles(conf = {}){
       position: 'relative'
     }
   }
-  var ret = {}
-  Object.keys(baseStyles || {}).forEach(function(key){
-    var style = baseStyles[key]
-    style = Object.assign({}, style, styles[key])
-    ret[key] = style
-  })
-  return ret
+
+  return mergeStyles(baseStyles, styles)
 }
 class NavWrapper extends Component {
 

@@ -241,6 +241,43 @@ class MainContent extends Component {
 }
 ```
 
+## ToolbarWrapper
+
+Use this to display an auto-scrollable content-panel below a fixed position toolbar.
+
+ * toolbar - the React element to use as the toolbar
+ * height - the height of the topbar (default=56px)
+ * styles - override properties of the div styles
+   * container - the container div
+   * toolbar - the div containing the top toolbar
+   * content - the div containing the bottom content
+   * inner - the content div inside both tree and content
+
+```javascript
+import React, {Component, PropTypes} from 'react'
+import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar'
+import ToolbarWrapper from 'kettle-ui/lib/ToolbarWrapper'
+
+class MainContent extends Component {
+ 
+  render() {
+
+    return (
+      <ToolbarWrapper        
+        toolbar={
+          <Toolbar>
+            <ToolbarGroup firstChild={true}>
+              <ToolbarTitle text="Options" />
+            </ToolbarGroup>
+          </Toolbar>
+        }>
+        This is the body content
+      </ToolbarWrapper>
+    );
+  }
+}
+```
+
 ## AppNavWrapper
 
 A combo of the app and nav wrapper so you pass the appbar and navbar both as properties
@@ -293,6 +330,48 @@ class MainContent extends Component {
   }
 }
 ```
+
+## tools
+
+#### `mergeStyles(basestyles = {}, overrides = {})`
+
+Use this function to merge two sets of styles - useful for applying overrides to default style groups:
+
+```javascript
+import { mergeStyles } from 'kettle-ui/lib/tools'
+const basestyles = {
+  container:{
+    width:'10px'
+  },
+  footer:{
+    width:'12px'
+  }
+}
+
+const overrides = {
+  container:{
+    height:'20px'
+  },
+  footer:{
+    width:'50px'
+  }
+}
+
+console.log(mergeStyles(basestyles, overrides))
+
+/*
+
+{
+  container:{
+    width:'10px',
+    height:'20px'
+  },
+  footer:{
+    width:'50px'
+  }
+}{text}
+  
+*/
 
 ## license
 
