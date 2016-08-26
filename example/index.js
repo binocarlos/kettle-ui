@@ -7,6 +7,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 import Form from '../src/Form'
 import AppNavWrapper from '../src/AppNavWrapper'
+import ButtonDropdown from '../src/ButtonDropdown'
+import RaisedButton from 'material-ui/RaisedButton'
 import { Container, Row, Col } from '../src/Grid'
 
 
@@ -106,7 +108,15 @@ ReactDOM.render(
         }>
         <Container>
           <Row>
-            <Col md={3}></Col>
+            <Col md={3}>
+              <ButtonDropdown
+                buttonclass={RaisedButton}
+                buttonprops={{
+                  label:"click me"
+                }}>
+                this is a test
+              </ButtonDropdown>
+            </Col>
             <Col md={6}>
               <FormContainer />
             </Col>

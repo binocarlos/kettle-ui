@@ -331,6 +331,43 @@ class MainContent extends Component {
 }
 ```
 
+## ButtonDropDown
+
+A button with a popover.
+
+ * buttonclass - the React class to use as the button
+ * buttonprops - the props to pass to the button (onTouchTap will be added)
+ * children - what to render in the popover
+
+```javascript
+import React, {Component, PropTypes} from 'react'
+import RaisedButton from 'material-ui/RaisedButton'
+import Menu from 'material-ui/Menu'
+import MenuItem from 'material-ui/MenuItem'
+import ButtonDropDown from 'kettle-ui/lib/ButtonDropDown'
+
+class MyPopover extends Component {
+ 
+  render() {
+
+    return (
+      <ButtonDropDown
+        buttonclass={RaisedButton}
+        buttonprops={{
+          label="Click me"
+        }} />
+        <Menu>
+          <MenuItem primaryText="Refresh" />
+          <MenuItem primaryText="Help &amp; feedback" />
+          <MenuItem primaryText="Settings" />
+          <MenuItem primaryText="Sign out" />
+        </Menu>
+      </ButtonDropDown>
+    );
+  }
+}
+```
+
 ## tools
 
 #### `mergeStyles(basestyles = {}, overrides = {})`
