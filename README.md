@@ -355,7 +355,7 @@ class MyPopover extends Component {
         buttonclass={RaisedButton}
         buttonprops={{
           label="Click me"
-        }} />
+        }}>
         <Menu>
           <MenuItem primaryText="Refresh" />
           <MenuItem primaryText="Help &amp; feedback" />
