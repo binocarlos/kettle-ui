@@ -247,6 +247,7 @@ Use this to display an auto-scrollable content-panel below a fixed position tool
 
  * toolbar - the React element to use as the toolbar
  * height - the height of the topbar (default=56px)
+ * offsetWidth - the width offset because of a NavWrapper (default=0px)
  * styles - override properties of the div styles
    * container - the container div
    * toolbar - the div containing the top toolbar
