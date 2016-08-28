@@ -4,10 +4,13 @@ import { Provider, connect } from 'react-redux'
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import ArrowIcon from 'material-ui/svg-icons/navigation/arrow-downward'
 import AppBar from 'material-ui/AppBar'
 import Form from '../src/Form'
 import AppNavWrapper from '../src/AppNavWrapper'
 import ButtonDropdown from '../src/ButtonDropdown'
+import IconDropdown from '../src/IconDropdown'
+
 import RaisedButton from 'material-ui/RaisedButton'
 import { Container, Row, Col } from '../src/Grid'
 
@@ -120,7 +123,20 @@ ReactDOM.render(
             <Col md={6}>
               <FormContainer />
             </Col>
-            <Col md={6}></Col>
+            <Col md={6}>
+              <IconDropdown
+                icon={<ArrowIcon />}
+                items={[{
+                  title:'Apples',
+                  id:10
+                },{
+                  title:'Oranges',
+                  id:11
+                }]}
+                onselect={item => {
+                  console.dir(item)
+                }} />
+            </Col>
           </Row>
         </Container>
       </AppNavWrapper>

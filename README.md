@@ -369,6 +369,43 @@ class MyPopover extends Component {
 }
 ```
 
+## IconDropdown
+
+A drop down menu with an icon to trigger it.
+
+ * icon - the React Element to use as the icon (default=`material-ui/svg-icons/navigation/expand-more`)
+ * items - an array of objects describing what appears in the drop down
+   * data - passed to the onselect function
+   * title - text to display
+ * onselect(item) - a function to run when an item is selected
+
+```javascript
+import React, {Component, PropTypes} from 'react'
+import ArrowIcon from 'material-ui/svg-icons/navigation/arrow-downward'
+import IconDropdown from 'kettle-ui/lib/IconDropdown'
+
+class MyIconDropdown extends Component {
+ 
+  render() {
+
+    return (
+      <IconDropdown
+        icon={<ArrowIcon />}
+        items={[{
+          title:'Apples',
+          id:10
+        },{
+          title:'Oranges',
+          id:11
+        }]}
+        onselect={item => {
+          console.dir(item)
+        }} />
+    )
+  }
+}
+```
+
 ## tools
 
 #### `mergeStyles(basestyles = {}, overrides = {})`
