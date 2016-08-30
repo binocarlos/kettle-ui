@@ -26,6 +26,12 @@ class ButtonDropdown extends Component {
     });
   }
 
+  componentWillReceiveProps = (newProps) => {
+    if(newProps.timestamp!=this.props.timestamp){
+      this.handleRequestClose()
+    }
+  }
+
   render() {
 
     var ButtonClass = this.props.buttonclass

@@ -338,6 +338,7 @@ A button with a popover.
 
  * buttonclass - the React class to use as the button
  * buttonprops - the props to pass to the button (onTouchTap will be added)
+ * timestamp - used to close the dropdown in cases where it remains open
  * children - what to render in the popover
 
 ```javascript
