@@ -109,36 +109,34 @@ ReactDOM.render(
         navbar={
           <div>this is the tree</div>
         }>
-        <Container>
-          <Row>
-            <Col md={3}>
-              <ButtonDropdown
-                buttonclass={RaisedButton}
-                buttonprops={{
-                  label:"click me"
-                }}>
-                this is a test
-              </ButtonDropdown>
-            </Col>
-            <Col md={6}>
-              <FormContainer />
-            </Col>
-            <Col md={6}>
-              <IconDropdown
-                icon={<ArrowIcon />}
-                items={[{
-                  title:'Apples',
-                  id:10
-                },{
-                  title:'Oranges',
-                  id:11
-                }]}
-                onselect={item => {
-                  console.dir(item)
-                }} />
-            </Col>
-          </Row>
-        </Container>
+        <div>
+          <div>
+            <ButtonDropdown
+              buttonclass={RaisedButton}
+              buttonprops={{
+                label:"click me"
+              }}>
+              this is a test
+            </ButtonDropdown>
+          </div>
+          <div>
+            <FormContainer />
+          </div>
+          <div>
+            <IconDropdown
+              icon={<ArrowIcon />}
+              items={[{
+                title:'Apples',
+                id:10
+              },{
+                title:'Oranges',
+                id:11
+              }]}
+              onselect={item => {
+                console.dir(item)
+              }} />
+          </div>
+        </div>
       </AppNavWrapper>
     </MuiThemeProvider>
   </Provider>,

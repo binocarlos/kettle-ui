@@ -6,9 +6,12 @@ kettle-ui
 Widgets:
 
  * Form - display form fields using [biro](https://github.com/binocarlos/biro)
- * Grid - export [react-grid-system](https://github.com/zoover/react-grid-system) directly
  * AppWrapper - an AppBar and an offset full width/height ContentPane
  * NavWrapper - scrollable sidebar and an offset full width/height ContentPane
+ * ToolbarWrapper - display an auto-scrollable content-panel below a fixed position toolbar
+ * AppNavWrapper - A combo of the app and nav wrapper so you pass the appbar and navbar both as properties
+ * ButtonDropDown - A button with a popover.
+ * IconDropdown - A drop down menu with an icon to trigger it.
 
 ## install
 
@@ -82,54 +85,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(LoginForm)
-```
-
-## Grid
-
-You can import the `Container`, `Row` and `Col` classes from [react-grid-system](https://github.com/zoover/react-grid-system):
-
-The docs for the grid system [live here](https://zoover.github.io/react-grid-system/)
-
-```javascript
-import React, {Component, PropTypes} from 'react'
-import { Container, Row, Col } from 'kettle-ui/lib/Grid'
-
-class Page extends Component {
- 
-  render() {
-
-    const styles = {
-      container:{
-        marginTop:'20px'
-      }
-    }
-  
-    var width = parseInt(this.props.width)
-    width = isNaN(width) ? 6 : width
-    const otherWidth = (12-width)/2;
-
-    return (
-      <div>
-        <AppBar
-          showMenuIconButton={false}
-          title={this.props.title}
-          zDepth={0}
-        />
-
-        <Container style={styles.container}>
-          <Row>
-            <Col md={otherWidth}></Col>
-            <Col md={width}>
-              {this.props.children}
-            </Col>
-            <Col md={otherWidth}></Col>
-          </Row>
-
-        </Container>
-      </div>
-    );
-  }
-}
 ```
 
 ## AppWrapper
