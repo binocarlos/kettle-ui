@@ -1,6 +1,6 @@
 {
   "name": "kettle-ui",
-  "version": "2.6.2",
+  "version": "3.0.0",
   "description": "material-ui based widgets",
   "main": "index.js",
   "scripts": {
