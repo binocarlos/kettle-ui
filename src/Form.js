@@ -82,6 +82,8 @@ class Form extends Component {
           {errorDiv}
         </div>
 
+        {this.props.children}
+
       </div>
     )
   }

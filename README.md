@@ -35,6 +35,7 @@ A wrapper for a [biro](https://github.com/binocarlos/biro) form:
  * library - extra library fields merged into [biro-material-ui](https://github.com/binocarlos/biro-material-ui)
  * update - the function to update the (data,meta)
  * submit - when the submit button is cancelled
+ * children - any children passed to the form will be rendered under the button and error
 
 ```javascript
 import React, { Component, PropTypes } from 'react'
