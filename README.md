@@ -191,7 +191,7 @@ class MainContent extends Component {
           </List>
         }>
         This is the body content
-      </AppWrapper>
+      </NavWrapper>
     );
   }
 }
@@ -288,6 +288,55 @@ class MainContent extends Component {
 }
 ```
 
+## Toolbar
+
+A base toolbar class that can display buttons and drop-down buttons.
+
+Properties:
+
+ * `title` - the toolbar title
+ * {`leftButtons`,`rightButtons`} - an array of dropdown or button descriptions for the {left,right} menu buttons
+   * `type` - {button,dropdown,icon}
+   * `icon` - React Element - used for the icon button
+   * `title` - the button title
+   * `handler` - function that handles the button click
+   * `extraProps` - extra props passed to the button
+   * `items` - an array of objects describing what options are in the menu
+     * `title` - text to display
+     * `handler` - function that handles the button click
+     * `divider` - a boolean that turns this item into a menu divider
+ * `children` - React element to include after the left hand buttons
+ * `rightChildren` - React element to include after the right hand buttons
+
+The toolbar also has some helper methods:
+
+##### `getMenuItems(items, handler)`
+
+generate a list of `MenuItem` components from source data
+
+the handler is the function to run when an item is selected and it is passed the selected item
+
+##### `getDropDownButton(label, items, extraProps)`
+
+generate a ButtonDropdown with the given items - items and handler are passed to `getMenuItems`
+
+extraProps are passed to the underlying button.
+
+##### `getIconDropdown(icon, items, extraProps)`
+
+generate a ButtonDropdown with the given items - items and handler are passed to `getMenuItems`
+
+extraProps are passed to the underlying button.
+
+##### `getButton(items, handler, extraProps)`
+
+generate a normal button - handler is run when the button is clicked
+
+You can pass a schema to the toolbar and it will render the correct components.
+
+extraProps are passed to the underlying button.
+
+
 ## ButtonDropDown
 
 A button with a popover.
@@ -330,11 +379,10 @@ class MyPopover extends Component {
 
 A drop down menu with an icon to trigger it.
 
- * icon - the React Element to use as the icon (default=`material-ui/svg-icons/navigation/expand-more`)
- * items - an array of objects describing what appears in the drop down
-   * data - passed to the onselect function
-   * title - text to display
- * onselect(item) - a function to run when an item is selected
+ * `icon` - the React Element to use as the icon (default=`material-ui/svg-icons/navigation/expand-more`)
+ * `items` - an array of objects describing what appears in the drop down
+   * `handler` - function that handles the button click
+   * `title` - text to display
 
 ```javascript
 import React, {Component, PropTypes} from 'react'
@@ -350,10 +398,16 @@ class MyIconDropdown extends Component {
         icon={<ArrowIcon />}
         items={[{
           title:'Apples',
-          id:10
+          id:10,
+          handler:() => {
+
+          }
         },{
           title:'Oranges',
-          id:11
+          id:11,
+          handler:() => {
+            
+          }
         }]}
         onselect={item => {
           console.dir(item)

@@ -22,7 +22,7 @@ class IconDropdown extends Component {
           items.map((item, i) => {
             return (
               <MenuItem key={i} primaryText={item.title} onTouchTap={() => {
-                this.props.onselect(item)
+                item.handler && item.handler()
               }}/>
             )
           })
