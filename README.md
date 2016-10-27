@@ -417,6 +417,18 @@ class MyIconDropdown extends Component {
 }
 ```
 
+## ConfirmDialog
+
+A dialog window with a confirm and cancel button
+
+ * `confirmTitle` - default to `Confirm`
+ * `cancelTitle` - default to `Cancel`
+ * `children` - the contents of the dialog
+ * `isOpen` - whether the dialog is open
+ * `isModal` - is the dialog in modal mode
+ * `onClose()` - run when the dialog is closed
+ * `onConfirm()` - run when the dialog is confirmed
+
 ## tools
 
 #### `mergeStyles(basestyles = {}, overrides = {})`
