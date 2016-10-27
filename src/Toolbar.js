@@ -17,7 +17,7 @@ const STYLES = {
   }
 }
 
-export const getMenuItems = (item = []) => {
+export const getMenuItems = (items = []) => {
   return items.map((item,i) => {
     return (
       item.divider ? (
