@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
+import IconButton from 'material-ui/IconButton'
 import Divider from 'material-ui/Divider'
 import RaisedButton from 'material-ui/RaisedButton'
 import ButtonDropdown from './ButtonDropdown'
@@ -96,14 +97,26 @@ class KettleToolbar extends Component {
 
     return (
       <Toolbar>
-        <ToolbarGroup key={0}>
+        <ToolbarGroup key={1}>
+          {
+            this.props.icon ? (
+              <IconButton 
+                // a small adjustment so the icon lines up with the ToolbarTitle
+                style={{
+                  marginTop:3
+                }}
+                disabled={true}>
+                {this.props.icon}
+              </IconButton>
+            ) : null
+          }
           {
             this.props.title ? (
               <ToolbarTitle text={this.props.title} />
             ) : null
           }
           {
-            this.props.title ? (
+            (this.props.title || this.props.icon) ? (
               <ToolbarSeparator />
             ) : null
           }
@@ -121,7 +134,7 @@ class KettleToolbar extends Component {
         
         </ToolbarGroup>
 
-        <ToolbarGroup key={1}>
+        <ToolbarGroup key={2}>
           {
             this.props.rightChildren
           }
