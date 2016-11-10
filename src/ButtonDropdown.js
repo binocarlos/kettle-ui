@@ -39,6 +39,14 @@ class ButtonDropdown extends Component {
       onTouchTap:this.handleTouchTap
     })
 
+    var children = this.props.children
+
+    if(this.props.getChildren){
+      children = this.props.getChildren(() => {
+        this.handleRequestClose()
+      })
+    }
+
     return (
       <div>
         <ButtonClass {...buttonprops} />
@@ -49,7 +57,7 @@ class ButtonDropdown extends Component {
           targetOrigin={{horizontal: 'left', vertical: 'top'}}
           onRequestClose={this.handleRequestClose}
         >
-          {this.props.children}
+          {children}
         </Popover>
       </div>
     )
