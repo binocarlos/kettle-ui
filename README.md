@@ -12,6 +12,7 @@ Widgets:
  * AppNavWrapper - A combo of the app and nav wrapper so you pass the appbar and navbar both as properties
  * ButtonDropDown - A button with a popover.
  * IconDropdown - A drop down menu with an icon to trigger it.
+ * Page - a wrapper with padding
 
 ## install
 
@@ -428,6 +429,12 @@ A dialog window with a confirm and cancel button
  * `isModal` - is the dialog in modal mode
  * `onClose()` - run when the dialog is closed
  * `onConfirm()` - run when the dialog is confirmed
+
+## Page
+
+A wrapper with some padding
+
+ * `styles` - styles to apply to the wrapper
 
 ## tools
 
