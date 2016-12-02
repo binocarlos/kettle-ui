@@ -56,7 +56,6 @@ dist
 pids
 logs
 results
-yarn.lock
 npm-debug.log
 node_modules
 build
