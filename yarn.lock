@@ -342,7 +342,7 @@ babel-plugin-transform-async-to-generator@^6.16.0:
     babel-plugin-syntax-async-functions "^6.8.0"
     babel-runtime "^6.0.0"
 
-babel-plugin-transform-class-properties@^6.18.0, babel-plugin-transform-class-properties@^6.6.0:
+babel-plugin-transform-class-properties@^6.18.0:
   version "6.19.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-class-properties/-/babel-plugin-transform-class-properties-6.19.0.tgz#1274b349abaadc835164e2004f4a2444a2788d5f"
   dependencies:
@@ -734,15 +734,15 @@ binary-extensions@^1.0.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.7.0.tgz#6c1610db163abfb34edfe42fa423343a1e01185d"
 
-biro-material-ui@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/biro-material-ui/-/biro-material-ui-2.3.0.tgz#bd70ec8ce143bb688726d1c361d721d905d3ab97"
+biro-material-ui@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/biro-material-ui/-/biro-material-ui-2.3.1.tgz#5ec8a88a15243be7a72956381970361f7cdb8178"
   dependencies:
     material-ui "^0.16.4"
 
-biro@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/biro/-/biro-3.3.1.tgz#b9a4e51b3a269ae8be52316a3c92f01629ab6af4"
+biro@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/biro/-/biro-3.3.3.tgz#0bf4061a8866d3e15d8dccd5a100f70e81202c81"
 
 block-stream@*:
   version "0.0.9"
@@ -940,7 +940,7 @@ extsprintf@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.0.2.tgz#e1080e0658e300b06294990cc70e1502235fd550"
 
-fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.6:
+fbjs@^0.8.1, fbjs@^0.8.4:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.6.tgz#7eb67d6986b2d5007a9b6e92e0e7cb6f75cad290"
   dependencies:
@@ -1602,26 +1602,12 @@ react-addons-transition-group@^15.0.0:
   version "15.4.1"
   resolved "https://registry.yarnpkg.com/react-addons-transition-group/-/react-addons-transition-group-15.4.1.tgz#27d92717089c5e2db202e654a85b76a41b703acc"
 
-react-dom@^15.4.1:
-  version "15.4.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.1.tgz#d54c913261aaedb17adc20410d029dcc18a1344a"
-  dependencies:
-    fbjs "^0.8.1"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
-
 react-event-listener@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/react-event-listener/-/react-event-listener-0.4.0.tgz#26c40ab18f9f0e0d8d1fed9c3465e79c0a99c9a5"
   dependencies:
     react-addons-shallow-compare "^0.14.0 || ^15.0.0"
     warning "^3.0.0"
-
-react-tap-event-plugin@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/react-tap-event-plugin/-/react-tap-event-plugin-2.0.1.tgz#316beb3bc6556e29ec869a7293e89c826a9074d2"
-  dependencies:
-    fbjs "^0.8.6"
 
 react@^15.4.1:
   version "15.4.1"
