@@ -5,7 +5,7 @@ import Chip from 'material-ui/Chip'
 import {pinkA700} from 'material-ui/styles/colors'
 import RefreshIndicator from 'material-ui/RefreshIndicator'
 import library from 'biro-material-ui'
-import layout from 'biro-material-ui/layout'
+import layout from 'biro-material-ui/lib/layout'
 
 const blockStyle = {
   marginTop: '20px',
