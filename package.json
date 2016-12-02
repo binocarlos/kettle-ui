@@ -24,7 +24,7 @@
   "homepage": "https://github.com/binocarlos/kettle-ui",
   "dependencies": {
     "biro": "^3.3.3",
-    "biro-material-ui": "^2.3.1",
+    "biro-material-ui": "^2.3.2",
     "material-ui": "^0.16.4"
   },
   "devDependencies": {
