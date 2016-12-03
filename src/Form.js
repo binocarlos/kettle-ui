@@ -17,6 +17,7 @@ const errorChipStyle = {
 }
 
 const errorLabelStyle = {
+  float:'right',
   color:'white'
 }
 
@@ -27,22 +28,36 @@ const refreshStyle = {
 
 class Form extends Component {
 
+  static contextTypes = {muiTheme: PropTypes.object.isRequired}
+
   submit() {
     this.props.submit && this.props.submit(this.props.data, this.props.meta)
   }
   
   render() {
 
+    const palette = this.context.muiTheme.palette
+
     const merged_library = Object.assign({}, library, this.props.library)
 
     const errorDiv = this.props.error && !this.props.loading ? (
-      <Chip
-        backgroundColor={pinkA700}
-        labelStyle={errorLabelStyle}
-        style={errorChipStyle}
+      <div
+        style={{
+          float:'right'
+        }}
       >
-        {this.props.error}
-      </Chip>
+        <div style={{
+          paddingTop:'15px'
+        }}>
+          <span style={{
+            backgroundColor:palette.accent1Color,
+            color:palette.alternateTextColor,
+            padding:'5px'
+          }}>
+              {this.props.error}
+          </span>
+        </div>
+      </div>
     ) : null
 
     const submitButton = this.props.loading ? (
