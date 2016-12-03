@@ -57,6 +57,7 @@ class Form extends Component {
       <RaisedButton 
         label={this.props.title || 'Submit'} 
         primary={true} 
+        disabled={this.props.disableButton}
         onClick={this.submit.bind(this)}
       />
     )

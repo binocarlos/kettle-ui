@@ -33,6 +33,7 @@ A wrapper for a [biro](https://github.com/binocarlos/biro) form:
  * loading - is the form currently submitting or otherwise busy
  * schema - the fields
  * validate - overall validator
+ * disableButton - if the button should be disabled
  * library - extra library fields merged into [biro-material-ui](https://github.com/binocarlos/biro-material-ui)
  * update - the function to update the (data,meta)
  * submit - when the submit button is cancelled
