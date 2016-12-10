@@ -298,6 +298,14 @@ Properties:
 
  * `title` - the toolbar title
  * {`leftButtons`,`rightButtons`} - an array of dropdown or button descriptions for the {left,right} menu buttons
+ * `children` - React element to include after the left hand buttons
+ * `rightChildren` - React element to include after the right hand buttons
+
+## ButtonRow
+
+A collection of buttons driven by a schema.
+
+ * {`buttons`} - an array of dropdown or button descriptions for the menu buttons
    * `type` - {button,dropdown,icon}
    * `icon` - React Element - used for the icon button
    * `title` - the button title
@@ -307,10 +315,8 @@ Properties:
      * `title` - text to display
      * `handler` - function that handles the button click
      * `divider` - a boolean that turns this item into a menu divider
- * `children` - React element to include after the left hand buttons
- * `rightChildren` - React element to include after the right hand buttons
 
-The toolbar also has some helper methods:
+The ButtonRow also has some helper methods:
 
 ##### `getMenuItems(items, handler)`
 
@@ -338,6 +344,19 @@ You can pass a schema to the toolbar and it will render the correct components.
 
 extraProps are passed to the underlying button.
 
+##### `getButtonFromSchema(schema, i)`
+
+return a button based on a schema object:
+
+```javascript
+render() {
+  return (
+    <div>
+      {buttonDescriptions.map(getButtonFromSchema)}
+    </div>
+  )
+}
+```
 
 ## ButtonDropDown
 
